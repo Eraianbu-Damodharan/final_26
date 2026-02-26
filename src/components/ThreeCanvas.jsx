@@ -26,6 +26,7 @@ export default function ThreeCanvas() {
       antialias: true,
       alpha: true,
     });
+    renderer.setClearColor(0x000000, 0); // IMPORTANT (transparent background)
 
     renderer.setSize(
       mountRef.current.clientWidth,

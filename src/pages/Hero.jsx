@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ThreeCanvas from "../components/ThreeCanvas";
 
+
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.normalizeScroll(true);
 
@@ -25,7 +26,7 @@ export default function Hero({ setRadius }) {
         scrollTrigger: {
           trigger: hero,
           start: "top top",
-          end: "+=100%",
+          end: "+=60%",
           scrub: true,
           pin: true,
           anticipatePin: 1,
@@ -72,10 +73,10 @@ export default function Hero({ setRadius }) {
 
   return (
     <>
-      <section ref={heroRef} className="hero">
+      <section id="home"ref={heroRef} className="hero">
         <ThreeCanvas />
         <div className="hero-content">
-          <h1 className="hero-text">CELISTA</h1>
+          <h1 className="hero-text">CELISTA'26</h1>
           <p className="hero-sub">From Department of AI & DS</p>
         </div>
 

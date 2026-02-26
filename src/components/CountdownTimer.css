@@ -1,0 +1,264 @@
+/* ===============================
+   FONT (Make sure this exists globally)
+=================================*/
+
+/* Add this in your global CSS if not already */
+@font-face {
+  font-family: 'DS-Digital';
+  src: url('/src/assets/fonts/ds-digital.ttf') format('truetype');
+}
+
+
+/* ===============================
+   NORMAL MODE
+=================================*/
+
+.countdown-wrapper {
+  width: 100%;
+  padding: 0px 0;
+  text-align: center;
+  background: #000;
+
+  transition:
+    top 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    left 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
+}
+
+.countdown-title {
+  color: #ff2a2a;
+  letter-spacing: 6px;
+  font-size: 22px;
+  margin-bottom: 60px;
+  transition: all 0.4s ease;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  transition: all 0.5s ease;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+
+/* ===============================
+   DIGITAL BOX PANEL
+=================================*/
+
+.countdown-box {
+  width: 130px;
+  height: 170px;
+  background: #050505;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    inset 0 0 30px rgba(255, 0, 0, 0.08),
+    0 0 25px rgba(255, 0, 0, 0.15);
+
+  transition: all 0.6s ease;
+}
+
+
+/* ===============================
+   DIGITAL NUMBER
+=================================*/
+
+.countdown-value {
+  font-family: 'DS-Digital', monospace;
+  font-size: 90px;
+  color: #ff0000;
+
+  text-shadow:
+    0 0 6px #ff0000,
+    0 0 18px #ff0000,
+    0 0 40px #ff0000;
+
+  transition: all 0.6s ease;
+}
+
+
+/* ===============================
+   LABEL
+=================================*/
+
+.countdown-label {
+  margin-top: 18px;
+  font-size: 15px;
+  letter-spacing: 6px;
+  color: #ff2a2a;
+  transition: all 0.5s ease;
+}
+
+
+/* ===============================
+   COLON BETWEEN BOXES
+=================================*/
+
+.countdown-item:not(:last-child)::after {
+  content: ":";
+  position: absolute;
+  right: -25px;
+  top: 40px;
+
+  font-family: 'DS-Digital', monospace;
+  font-size: 70px;
+  color: #ff0000;
+
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 15px #ff0000;
+
+  transition: all 0.5s ease;
+}
+
+
+
+/* ===============================
+   DOCKED MODE (SCROLL TRIGGERED)
+=================================*/
+
+.countdown-wrapper.docked {
+  position: fixed;
+  top: -20px;
+  left: 160px;  /* Adjust to align with navbar */
+  z-index: 2000;
+
+  padding: 0;
+  margin: 0;
+
+  width: auto;
+  background: transparent;
+
+  transform: scale(0.45);
+  transform-origin: top left;
+}
+
+
+/* Fade title smoothly */
+
+.countdown-wrapper.docked .countdown-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+
+/* Compact layout */
+
+.countdown-wrapper.docked .countdown-container {
+  gap: 15px;
+}
+
+
+/* Smaller digital boxes */
+
+.countdown-wrapper.docked .countdown-box {
+  width: 60px;
+  height: 80px;
+}
+
+
+/* Smaller numbers */
+
+.countdown-wrapper.docked .countdown-value {
+  font-size: 38px;
+}
+
+
+/* Smaller labels */
+
+.countdown-wrapper.docked .countdown-label {
+  font-size: 8px;
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+
+
+/* Smaller colons */
+
+.countdown-wrapper.docked .countdown-item:not(:last-child)::after {
+  font-size: 30px;
+  right: -15px;
+  top: 15px;
+}
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 768px) {
+
+  .countdown-wrapper {
+    padding: 80px 0;
+  }
+
+  .countdown-container {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-box {
+    width: 70px;
+    height: 90px;
+  }
+
+  .countdown-value {
+    font-size: 36px;
+  }
+
+  .countdown-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-top: 6px;
+  }
+
+  .countdown-item:not(:last-child)::after {
+    font-size: 22px;
+    right: -10px;
+    top: 18px;
+  }
+
+}
+/* ===============================
+   FLOATING MODE
+=================================*/
+
+.countdown-wrapper {
+  transition: all 0.2s ease;
+}
+
+.countdown-wrapper.floating {
+  position: fixed;
+  bottom: 40px;
+  left: 20px;   /* anchor to left instead */
+  z-index: 2000;
+
+  transform: scale(0.45);
+  transform-origin: bottom left;
+
+  padding: 8px 12px;
+  width: fit-content;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+}
+
+/* Hide title when floating */
+.countdown-wrapper.floating .countdown-title {
+  display: none;
+}
+

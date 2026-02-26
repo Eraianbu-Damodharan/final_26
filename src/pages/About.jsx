@@ -7,6 +7,7 @@ import collegeLogo from "../assets/college.png";
 import deptLogo from "../assets/department.png";
 import celistaLogo from "../assets/logo.png";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
@@ -42,7 +43,8 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="about-section">
+    
+    <section id="about" ref={sectionRef} className="about-section">
       <div className="about-heading">
         <h1>ABOUT US</h1>
       </div>
