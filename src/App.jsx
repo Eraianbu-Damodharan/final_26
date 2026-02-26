@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
+    const hideSmoke = scrollY < window.innerHeight;
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,6 +30,7 @@ function App() {
     <>
       {/* Background */}
       <Particles />
+      <GlobalSmoke hidden={scrollY < window.innerHeight} />
         <ChatBot />
 
       {/* Foreground */}
@@ -43,7 +45,6 @@ function App() {
             element={
               <>
                 <Hero />
-                <GlobalSmoke />
                 <CountdownTimer docked={dockTimer} />
                 <About />
                 <EventModeSelection />

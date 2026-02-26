@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-export default function GlobalSmoke() {
+export default function GlobalSmoke({ hidden }) {
   const mountRef = useRef(null);
+  const rendererRef = useRef(null);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -16,6 +17,8 @@ export default function GlobalSmoke() {
       alpha: true,
       antialias: true,
     });
+
+    rendererRef.current = renderer;
 
     renderer.setClearColor(0x000000, 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -86,10 +89,12 @@ export default function GlobalSmoke() {
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
+    let frameId;
+
     const animate = () => {
       material.uniforms.u_time.value += 0.02;
       renderer.render(scene, camera);
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
     };
 
     animate();
@@ -105,10 +110,19 @@ export default function GlobalSmoke() {
     window.addEventListener("resize", handleResize);
 
     return () => {
+      cancelAnimationFrame(frameId);
       window.removeEventListener("resize", handleResize);
-      mountRef.current.removeChild(renderer.domElement);
+      if (mountRef.current && renderer.domElement) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+      renderer.dispose();
     };
   }, []);
 
-  return <div ref={mountRef} className="global-smoke" />;
+  return (
+    <div
+      ref={mountRef}
+      className={`global-smoke ${hidden ? "smoke-hidden" : ""}`}
+    />
+  );
 }
