@@ -1,12 +1,8 @@
-/* ===============================
+nts,borderland decrypt/* ===============================
    FONT (Make sure this exists globally)
 =================================*/
 
 /* Add this in your global CSS if not already */
-@font-face {
-  font-family: 'DS-Digital';
-  src: url('/src/assets/fonts/ds-digital.ttf') format('truetype');
-}
 
 
 /* ===============================
@@ -241,20 +237,21 @@
 
 .countdown-wrapper.floating {
   position: fixed;
-  bottom: 40px;
-  left: 20px;   /* anchor to left instead */
+  top: 100px;
+  left: 20px;
+  bottom: auto;
   z-index: 2000;
 
   transform: scale(0.45);
-  transform-origin: bottom left;
+  transform-origin: top left;
 
   padding: 8px 12px;
   width: fit-content;
 
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 12px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
 }
 
 /* Hide title when floating */
@@ -262,3 +259,14 @@
   display: none;
 }
 
+@media (max-width: 768px) {
+  .countdown-wrapper.floating {
+    top: auto;
+    bottom: 20px;
+    left: 20px;
+    transform: scale(0.6);
+    transform-origin: bottom left;
+    width: fit-content;
+    padding: 0;
+  }
+}

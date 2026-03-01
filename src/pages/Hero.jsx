@@ -77,8 +77,8 @@ export default function Hero({ setRadius }) {
   <ThreeCanvas />
 
   <div className="hero-content">
-    <h1 className="hero-text video-mask">CELISTA'26</h1>
-    <p className="hero-sub">From Department of AI & DS</p>
+    <h1 className="hero-text video-mask font-orbitron font-light">CELISTA'26</h1>
+    <p className="hero-sub font-inter">From Department of AI & DS</p>
   </div>
 
   <div ref={leftDoorRef} className="shutter left" />

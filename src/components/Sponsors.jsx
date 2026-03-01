@@ -32,7 +32,7 @@ const Sponsors = () => {
   return (
     <section className="sponsors-section" id="sponsors">
       <div className="sponsors-container">
-        <h2 className="sponsors-title">
+        <h2 className="sponsors-title font-orbitron font-light">
           POWERING <span>CELISTA 2K26</span>
         </h2>
 

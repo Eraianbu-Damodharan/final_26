@@ -1,11 +1,24 @@
 function Footer() {
+  // helper for in-page navigation similar to footblue/foooter
+  function handleNavClick(e, hash) {
+    e.preventDefault();
+    if (window.location.pathname !== "/") {
+      window.location.href = `/${hash}`;
+      return;
+    }
+    const id = hash.slice(1);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    window.history.pushState(null, "", hash);
+  }
+
   return (
     <footer className="relative z-10 bg-black border-t border-white/10 px-6 py-20">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16">
 
         {/* Brand */}
         <div>
-          <h3 className="font-orbitron text-2xl text-white tracking-widest mb-4">
+          <h3 className="font-orbitron font-light text-2xl text-white tracking-widest mb-4">
             CELISTA <span className="text-primary">2K26</span>
           </h3>
 
@@ -17,28 +30,44 @@ function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-orbitron text-lg text-white tracking-widest mb-6">
+          <h4 className="font-orbitron font-light text-lg text-white tracking-widest mb-6">
             QUICK LINKS
           </h4>
 
           <ul className="space-y-4 text-gray-400">
             <li>
-              <a href="#home" className="hover:text-primary transition">
+              <a
+                href="#home"
+                className="hover:text-primary transition"
+                onClick={(e) => handleNavClick(e, "#home")}
+              >
                 Home
               </a>
             </li>
             <li>
-              <a href="#about" className="hover:text-primary transition">
+              <a
+                href="#about"
+                className="hover:text-primary transition"
+                onClick={(e) => handleNavClick(e, "#about")}
+              >
                 About
               </a>
             </li>
             <li>
-              <a href="#events" className="hover:text-primary transition">
+              <a
+                href="#events"
+                className="hover:text-primary transition"
+                onClick={(e) => handleNavClick(e, "#events")}
+              >
                 Events
               </a>
             </li>
             <li>
-              <a href="#location" className="hover:text-primary transition">
+              <a
+                href="#location"
+                className="hover:text-primary transition"
+                onClick={(e) => handleNavClick(e, "#location")}
+              >
                 Location
               </a>
             </li>
@@ -47,7 +76,7 @@ function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="font-orbitron text-lg text-white tracking-widest mb-6">
+          <h4 className="font-orbitron font-light text-lg text-white tracking-widest mb-6">
             CONTACT
           </h4>
 

@@ -177,10 +177,8 @@ class Media {
           
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           
-          // Smooth antialiasing for edges
-          float edgeSmooth = 0.002;
+          float edgeSmooth = 0.005;
           float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
-          
           gl_FragColor = vec4(color.rgb, alpha);
         }
       `,
@@ -253,11 +251,13 @@ class Media {
     this.isAfter = this.plane.position.x - planeOffset > viewportOffset;
     if (direction === 'right' && this.isBefore) {
       this.extra -= this.widthTotal;
-      this.isBefore = this.isAfter = false;
+      this.isBefore = false;
+      this.isAfter = false;
     }
     if (direction === 'left' && this.isAfter) {
       this.extra += this.widthTotal;
-      this.isBefore = this.isAfter = false;
+      this.isBefore = false;
+      this.isAfter = false;
     }
   }
   onResize({ screen, viewport } = {}) {
@@ -346,14 +346,13 @@ class App {
       { image: `https://picsum.photos/seed/12/800/600?grayscale`, text: 'Palm Trees' }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
-    this.mediasImages = galleryItems.concat(galleryItems);
-    this.medias = this.mediasImages.map((data, index) => {
+    this.medias = galleryItems.map((data, index) => {
       return new Media({
         geometry: this.planeGeometry,
         gl: this.gl,
         image: data.image,
         index,
-        length: this.mediasImages.length,
+        length: galleryItems.length,
         renderer: this.renderer,
         scene: this.scene,
         screen: this.screen,
