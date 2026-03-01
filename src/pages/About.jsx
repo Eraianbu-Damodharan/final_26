@@ -46,7 +46,7 @@ export default function About() {
     
     <section id="about" ref={sectionRef} className="about-section">
       <div className="about-heading">
-        <h1>ABOUT US</h1>
+        <h1 className="font-orbitron font-light">ABOUT US</h1>
       </div>
 
       {/* COLLEGE */}

@@ -311,3 +311,9 @@ button:hover ~ #custom-cursor {
     transform: translateY(0);
   }
 }
+@font-face {
+  font-family: 'DS-Digital';
+  src: url('/fonts/DS-DIGIT.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -4,7 +4,7 @@ function Location() {
   return (
     <section
       id="location"
-      className="location-section min-h-screen bg-black py-20 px-4"
+      className="location-section min-h-screen py-20 px-4"
     >
       <div className="max-w-6xl mx-auto">
 
@@ -14,7 +14,7 @@ function Location() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-orbitron text-4xl md:text-5xl text-white tracking-widest text-center mb-20"
+          className="font-orbitron font-light text-4xl md:text-5xl text-white tracking-widest text-center mb-20"
         >
           EVENT <span className="text-primary">LOCATION</span>
         </motion.h2>
@@ -29,7 +29,7 @@ function Location() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-orbitron text-2xl text-white mb-6 tracking-widest">
+            <h3 className="font-orbitron font-light text-2xl text-white mb-6 tracking-widest">
               VENUE
             </h3>
 
@@ -65,9 +65,7 @@ function Location() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale opacity-90"
-              background="transparent"
-          
+              className=""
             />
           </motion.div>
 

@@ -31,6 +31,20 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // scroll to fragment identifiers when hash changes
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const element = document.getElementById(id);
+      if (element) {
+        // small timeout to ensure element is rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 50);
+      }
+    }
+  }, [location]);
+
   const dockTimer = scrollY > 400;
   const hideSmoke = scrollY < window.innerHeight;
 
@@ -64,7 +78,7 @@ function App() {
                 {/* PEOPLE BEHIND SECTION */}
                 <section className="relative py-24 text-white text-center overflow-hidden">
                   <div className="max-w-4xl mx-auto px-6">
-                    <h2 className="text-3xl md:text-4xl font-semibold tracking-wide mb-4">
+                    <h2 className="text-3xl md:text-4xl font-orbitron font-light tracking-wide mb-4">
                       The People Behind{" "}
                       <span className="text-red-600">CELISTA 2K26</span>
                     </h2>
