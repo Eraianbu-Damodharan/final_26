@@ -66,6 +66,7 @@ function Location() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="grayscale opacity-90"
+              background="transparent"
           
             />
           </motion.div>

@@ -11,7 +11,7 @@ const ScrollReveal = ({
   enableBlur = true,
   baseOpacity = 0.1,
   baseRotation = 3,
-  blurStrength = 2,
+  blurStrength = 6,
   containerClassName = '',
   textClassName = '',
   rotationEnd = 'bottom bottom',
@@ -46,7 +46,7 @@ const ScrollReveal = ({
         { transformOrigin: '0% 50%', rotate: baseRotation },
         {
           rotate: 0,
-          ease: 'none',
+          ease: 1,
           scrollTrigger: {
             trigger: el,
             scroller,

@@ -1,0 +1,100 @@
+/* ================= SECTION ================= */
+
+.credits-section {
+    padding: 120px 20px;
+    text-align: center;
+  }
+  
+  /* Container */
+  .credits-container {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  /* ================= TITLE ================= */
+  
+  .credits-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.6rem;
+    letter-spacing: 4px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .credits-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -14px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff1e1e, transparent);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+  }
+  
+  /* Subtitle */
+  .credits-subtitle {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    font-size: 1rem;
+    opacity: 0.7;
+    letter-spacing: 1px;
+  }
+  
+  /* ================= GRID ================= */
+  
+  .credits-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  /* ================= CARD ================= */
+  
+  .credit-card {
+    width: 280px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+  
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+  
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  /* Scroll show */
+  .credit-card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Hover glow */
+  .credit-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff1e1e;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  }
+  
+  /* Name */
+  .credit-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff1e1e;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  
+  /* Role */
+  .credit-card span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    letter-spacing: 1px;
+  }

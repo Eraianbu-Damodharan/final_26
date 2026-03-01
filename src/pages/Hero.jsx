@@ -73,16 +73,17 @@ export default function Hero({ setRadius }) {
 
   return (
     <>
-      <section id="home"ref={heroRef} className="hero">
-        <ThreeCanvas />
-        <div className="hero-content">
-          <h1 className="hero-text">CELISTA'26</h1>
-          <p className="hero-sub">From Department of AI & DS</p>
-        </div>
+      <section id="home" ref={heroRef} className="hero">
+  <ThreeCanvas />
 
-        <div ref={leftDoorRef} className="shutter left" />
-        <div ref={rightDoorRef} className="shutter right" />
-      </section>
+  <div className="hero-content">
+    <h1 className="hero-text video-mask">CELISTA'26</h1>
+    <p className="hero-sub">From Department of AI & DS</p>
+  </div>
+
+  <div ref={leftDoorRef} className="shutter left" />
+  <div ref={rightDoorRef} className="shutter right" />
+</section>
     </>
   );
 }

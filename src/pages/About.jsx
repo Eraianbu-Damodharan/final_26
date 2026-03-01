@@ -73,9 +73,7 @@ export default function About() {
         
         <div className="about-text">
           <ScrollReveal>
-            The Department of Artificial Intelligence & Data Science nurtures
-            innovation through machine learning, deep learning and predictive
-            analytics.
+            The Department of Artificial Intelligence and Data Science, established in 2021 under Mrs. Mathangi Narayanan, is a center for innovation and excellence. With advanced labs, cutting-edge tools, and strong industry collaborations (Microsoft, Infosys, CTS, TCS), it equips students with essential skills to drive AI and data science advancements under expert faculty guidance.
           </ScrollReveal>
         </div>
       </div>
@@ -88,8 +86,8 @@ export default function About() {
 
         <div className="about-text">
           <ScrollReveal>
-            CELISTA is the flagship annual technical symposium conducted by
-            AI & DS department blending innovation, creativity and competition.
+           The name Celista represents the celestial domain that extends beyond our reach just as the sphere of AI.
+           Our symposium strives to bring together young minds from various domains to foster collaboration and empowerment. We aim to inspire intellectual growth and community engagement.
           </ScrollReveal>
         </div>
       </div>

@@ -13,6 +13,8 @@ const Navbar = () => {
   { label: "About", href: "#about" },
   { label: "Events", href: "#events" },
   { label: "Location", href: "#location" },
+  { label: "Memories", href: "/memories" },
+  { label: "Sponsors", href: "#sponsors" },
 ]}
       baseColor="#000000"
       pillColor="#ffffff"

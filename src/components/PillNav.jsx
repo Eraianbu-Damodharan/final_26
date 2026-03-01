@@ -221,33 +221,29 @@ const handleScrollTo = (href) => {
           <ul className="pill-list">
             {items.map((item, i) => (
               <li key={i}>
-                {isScrollLink(item.href) ? (
-                  <a
-                    href={item.href}
-                    className="pill"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleScrollTo(item.href);
-                    }}
-                    onMouseEnter={() => handleEnter(i)}
-                    onMouseLeave={() => handleLeave(i)}
-                  >
-                    <span
-                      className="hover-circle"
-                      ref={(el) => (circleRefs.current[i] = el)}
-                    />
-                    <span className="label-stack">
-                      <span className="pill-label">{item.label}</span>
-                      <span className="pill-label-hover">
-                        {item.label}
-                      </span>
-                    </span>
-                  </a>
-                ) : (
-                  <a href={item.href} className="pill">
-                    {item.label}
-                  </a>
-                )}
+                <a
+  href={item.href}
+  className="pill"
+  onClick={(e) => {
+    if (isScrollLink(item.href)) {
+      e.preventDefault();
+      handleScrollTo(item.href);
+    }
+  }}
+  onMouseEnter={() => handleEnter(i)}
+  onMouseLeave={() => handleLeave(i)}
+>
+  <span
+    className="hover-circle"
+    ref={(el) => (circleRefs.current[i] = el)}
+  />
+  <span className="label-stack">
+    <span className="pill-label">{item.label}</span>
+    <span className="pill-label-hover">
+      {item.label}
+    </span>
+  </span>
+</a>
               </li>
             ))}
           </ul>
